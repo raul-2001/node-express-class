@@ -52,7 +52,7 @@ const updatePeople = (req, res) => {
 
 
 const deletePeople = (req, res) => {
-    const { name } = req.body;
+    // const { name } = req.body;
     const { id } = req.params
     
     // const person = people.find((person => person.id === Number(id) ))
