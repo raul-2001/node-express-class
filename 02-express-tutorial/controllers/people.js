@@ -21,13 +21,23 @@ const addPerson = (req, res) => {
     res.status(201).json( { success: true, person: name })
 }
 
+const getPerson = (req, res) => {
+    const { id } = req.params;
+    
+    const person = people.find((person => person.id === Number(id) ))
+    
+    return person
+}
+
 const updatePeople = (req, res) => {
     const { name } = req.body;
     const { id } = req.params;
     
-    const person = people.find((person => person.id === Number(id) ))
+    // const person = people.find((person => person.id === Number(id) ))
+    const person = getPerson(req, res);
+    
     if (!person) {
-        return res.status(401).json({ success: false, msg: `Provided ${id} not found!` })
+        return res.status(400).json({ success: false, msg: `Provided ${id} not found!` })
     }
 
     const newPerson = people.map((person) => {
@@ -44,9 +54,12 @@ const updatePeople = (req, res) => {
 const deletePeople = (req, res) => {
     const { name } = req.body;
     const { id } = req.params
-    const person = people.find((person => person.id === Number(id) ))
+    
+    // const person = people.find((person => person.id === Number(id) ))
+    const person = getPerson(req, res);
+    
     if (!person) {
-        return res.status(401).json({ success: false, msg: `Provided ${id} not found!` })
+        return res.status(404).json({ success: false, msg: `Provided ${id} not found!` })
     }
 
     const newListPerson = people.filter((person) => person.id !== Number(id))
