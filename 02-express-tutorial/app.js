@@ -11,6 +11,7 @@ const path = require('path');
 const peopleRoute = require('./routes/people')
 const {auth} = require('./authorize')
 const cookieParser = require('cookie-parser')
+
 app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './public/index.html'))
 })

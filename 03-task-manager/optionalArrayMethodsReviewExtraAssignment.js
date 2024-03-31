@@ -147,12 +147,26 @@ object.behavior()
 // changes to this file with your MR for week 3.
 
 const names = [
-  'Dimitry SantiAgo',
+  'Dimitry Santiago',
   'Carlos d. Perez',
   'tam  person',
   'Mariana Gomez',
-  'Amy You'
+  'Amy You', 
+  "Timothy      Cook",
+  "Nick_Masters",
+  "Timmy-Turner",
+  "Billy\nBob"
 ];
+const n = names1.map((name) => {
+  const splited = name.split(' ');
+  return splited[splited.length - 1]
+})
+
+console.log("Everyone last name ", n);
+
+const rightF = /^[A-Z][a-z]+$/
+const filterd = n.filter((name) => name.match(rightF))
+console.log("Filtered >>>", filterd)
 
 ///////////////////////////////////////////////////////////////////////////////
 //// put your answers above if you wish to do the challenges on your own //////
