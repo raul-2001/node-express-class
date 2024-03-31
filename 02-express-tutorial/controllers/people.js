@@ -54,11 +54,13 @@ const updatePeople = (req, res) => {
 
 
 const deletePeople = (req, res) => {
-    const { name } = req.body;
+    // const { name } = req.body;
     const { id } = req.params
+
     // const person = people.find((person => person.id === Number(id) ))
 
     const person = getPerson(req, res);
+
 
     if (!person) {
         return res.status(404).json({ success: false, msg: `Provided ${id} not found!` })

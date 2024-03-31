@@ -6,4 +6,6 @@ const { getPeople, addPerson, updatePeople, deletePeople } = require("../control
 router.route('/').get(getPeople).post(addPerson);
 router.route('/:id').put(updatePeople).delete(deletePeople);
 
+
 module.exports = router;
+
